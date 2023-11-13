@@ -1,10 +1,9 @@
 import React, { useContext, useState } from "react";
-import { Container, Col, CardImg, Button, Row } from "react-bootstrap";
+import { Container, Col, Button, Row } from "react-bootstrap";
 import { UserContext } from "../Data";
 
 const Checkout = () => {
   const {
-    catalogue,
     addProductstoCart,
     selectedProducts,
     RemoveProductsFromCart,
@@ -22,7 +21,11 @@ const Checkout = () => {
               return selectedProducts[prod.id] ? (
                 <Row className="pb-3">
                   <Col lg={4} md={4} sm={12} className="text-center">
-                    <img className="checkoutImg" src={prod.imageURL} />
+                    <img
+                      className="checkoutImg"
+                      alt="Shirt"
+                      src={prod.imageURL}
+                    />
                   </Col>
                   <Col
                     md={4}
@@ -92,7 +95,7 @@ const Checkout = () => {
                 </Button>{" "}
               </div>
             )}
-            {selectedNo == 0 && (
+            {selectedNo === 0 && (
               <div className="placeOrderBox text-center">
                 <h4>Your cart is empty, Continue Shopping..!</h4>
                 <Button href="/"> Go to HomePage </Button>

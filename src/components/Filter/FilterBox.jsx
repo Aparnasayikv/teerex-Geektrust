@@ -1,6 +1,5 @@
 import React from "react";
 import Accordion from "react-bootstrap/Accordion";
-import { useAccordionButton } from "react-bootstrap/AccordionButton";
 
 export const FilterBox = ({ config, data, FilterHandler, filterList }) => {
   return (

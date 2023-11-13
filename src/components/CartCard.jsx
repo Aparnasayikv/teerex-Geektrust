@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import { Row, Button } from "react-bootstrap";
@@ -60,7 +60,7 @@ const CartCard = () => {
                     -
                   </Button>
                 )}
-                {selectedProducts[item.id] == item.quantity && (
+                {selectedProducts[item.id] === item.quantity && (
                   <Card.Text className="text-danger">
                     {" "}
                     Maximum Available Quantity reached{" "}

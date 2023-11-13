@@ -1,11 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { FilterBox } from "./FilterBox";
 import { UserContext } from "../../Data";
 import { Navbar } from "react-bootstrap";
 
 const Filter = () => {
-  const [products, setProduct] = useState([]);
-
   const {
     colorList,
     genderList,

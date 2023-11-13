@@ -5,12 +5,10 @@ const URL =
 
 export const UserContext = React.createContext(null);
 const fetch_data = async () => {
-  {
-    const response = await fetch(URL);
-    const data = await response.json();
-    const prod = data;
-    return prod;
-  }
+  const response = await fetch(URL);
+  const data = await response.json();
+  const prod = data;
+  return prod;
 };
 const products = await fetch_data();
 
@@ -42,7 +40,7 @@ export const Data = ({ children }) => {
     setTotalPrice(price);
     let total = Object.values(selectedProducts)?.filter((i) => i !== 0).length;
     setSlecetedNo(total);
-  }, [selectedProducts]);
+  }, [selectedProducts, catalogue]);
 
   useEffect(() => {
     if (search === "") {
@@ -64,7 +62,7 @@ export const Data = ({ children }) => {
   }, [search]);
 
   useEffect(() => {
-    if (colorFilterList.length == 0) {
+    if (colorFilterList.length === 0) {
       setCatalogue(products);
     } else {
       let filteredProds = products.filter((item) =>
@@ -75,7 +73,7 @@ export const Data = ({ children }) => {
   }, [colorFilterList]);
 
   useEffect(() => {
-    if (genderFilterList.length == 0) {
+    if (genderFilterList.length === 0) {
       setCatalogue(products);
     } else {
       let filteredProds = products.filter((item) =>
@@ -86,7 +84,7 @@ export const Data = ({ children }) => {
   }, [genderFilterList]);
 
   useEffect(() => {
-    if (typefilterList.length == 0) {
+    if (typefilterList.length === 0) {
       setCatalogue(products);
     } else {
       let filteredProds = products.filter((item) =>
@@ -97,7 +95,7 @@ export const Data = ({ children }) => {
   }, [typefilterList]);
 
   useEffect(() => {
-    if (priceFilterList.length == 0) {
+    if (priceFilterList.length === 0) {
       setCatalogue(products);
     } else {
       let filteredProds = products.filter((item) => {
@@ -174,7 +172,7 @@ export const Data = ({ children }) => {
         colorList.push(product.color);
       }
     });
-    if (colorFilterList.length == 0) {
+    if (colorFilterList.length === 0) {
       return colorList;
     }
     return colorList;
@@ -182,32 +180,28 @@ export const Data = ({ children }) => {
 
   // type:
   const typeFilter = () => {
-    {
-      if (!products) {
-        return [];
-      }
-
-      const TypeList = [];
-      products.forEach((product) => {
-        if (!TypeList.includes(product.type)) {
-          TypeList.push(product.type);
-        }
-      });
-      return TypeList;
+    if (!products) {
+      return [];
     }
+
+    const TypeList = [];
+    products.forEach((product) => {
+      if (!TypeList.includes(product.type)) {
+        TypeList.push(product.type);
+      }
+    });
+    return TypeList;
   };
 
   // priceFilter:
   const priceFilter = () => {
-    {
-      const PriceList = [];
-      products.forEach((product) => {
-        if (!PriceList.includes(product.price)) {
-          PriceList.push(product.price);
-        }
-      });
-      return PriceList.sort();
-    }
+    const PriceList = [];
+    products.forEach((product) => {
+      if (!PriceList.includes(product.price)) {
+        PriceList.push(product.price);
+      }
+    });
+    return PriceList.sort();
   };
   const genderFilter = () => {
     if (!products) {
